@@ -12,15 +12,16 @@ const showGreet = ref(true)
         <h1 v-if="showGreet" >Hello World !</h1>
         <h1 v-else>Bye World !</h1>
       </Transition>
+      <button @click="showGreet = !showGreet">Toggle</button>
     </div>
-
-    <button @click="showGreet = !showGreet">Toggle</button>
   </main>
 </template>
 
 <style scoped>
 .container {
   position: relative;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 h1 {

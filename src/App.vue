@@ -3,18 +3,26 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <header>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/routing_animation">Routing Animation</RouterLink>
+    </nav>
+
+  </header>
+  <Transition name="route">
+    <RouterView />
+  </Transition>
+
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+  margin: 10px auto;
+  padding: 0 10%;
 }
 
 nav {
@@ -49,10 +57,6 @@ nav a:first-of-type {
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
@@ -67,5 +71,20 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+
+/* ROUTE ANIMATION */
+.route-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.route-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.route-enter-active {
+  transition: all 0.4s ease;
 }
 </style>
